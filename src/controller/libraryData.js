@@ -2,7 +2,6 @@ const { User, Library, Literature } = require('./../../models');
 
 exports.getLibrary = async (req, res) => {
   try {
-    const { id } = req.params;
     const library = await Library.findAll({
       // include: [
       //   {
@@ -20,9 +19,9 @@ exports.getLibrary = async (req, res) => {
       //     },
       //   },
       // ],
-      attributes: {
-        exclude: ['BookId', 'UserId', 'createdAt', 'updatedAt'],
-      },
+      // attributes: {
+      //   exclude: ['createdAt', 'updatedAt'],
+      // },
     });
 
     res.send({
