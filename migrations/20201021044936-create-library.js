@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'Literature',
-          as: 'literature',
+          key: 'id',
         },
         onUpdate: 'NO ACTION',
         onDelete: 'NO ACTION',
@@ -21,7 +21,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',
-          as: 'user',
+          key: 'id',
         },
         onUpdate: 'NO ACTION',
         onDelete: 'NO ACTION',
