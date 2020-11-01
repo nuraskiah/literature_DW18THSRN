@@ -92,17 +92,17 @@ exports.searchLiteratureDate = async (req, res) => {
 
 exports.getLiterature = async (req, res) => {
   try {
-    const literature = await Literature.findAll({
+    const data = await Literature.findAll({
       where: {
         status: 'Approved',
       },
-      // include: {
-      //   model: User,
-      //   as: 'user',
-      //   attributes: {
-      //     exclude: ['createdAt', 'updatedAt'],
-      //   },
-      // },
+      include: {
+        model: User,
+        as: 'user',
+        attributes: {
+          exclude: ['createdAt', 'updatedAt'],
+        },
+      },
       attributes: {
         exclude: ['createdAt', 'updatedAt'],
       },
@@ -111,9 +111,7 @@ exports.getLiterature = async (req, res) => {
 
     res.send({
       message: 'Data Succsesfully Loaded',
-      data: {
-        literature,
-      },
+      data,
     });
   } catch (err) {
     console.log(err);
