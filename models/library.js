@@ -9,16 +9,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Library.belongsTo(models.Literature, {
-        as: 'literature',
         foreignKey: {
           name: 'literatureId',
         },
+        as: 'literature',
       });
       Library.belongsTo(models.User, {
-        as: 'user',
         foreignKey: {
           name: 'userId',
         },
+        as: 'user',
       });
     }
   }
