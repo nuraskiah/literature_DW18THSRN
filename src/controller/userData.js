@@ -16,7 +16,7 @@ exports.getUsers = async (req, res) => {
               model: Literature,
               as: 'literature',
               attributes: {
-                exclude: ['createdAt', 'updatedAt', 'userId', 'UserId'],
+                exclude: ['createdAt', 'updatedAt', 'userId'],
               },
             },
           ],
