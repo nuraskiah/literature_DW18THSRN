@@ -13,6 +13,8 @@ module.exports = {
           phone: '081232123123',
           address: 'Indonesia',
           avatar: 'new.png',
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
       ],
       {}
