@@ -4,22 +4,22 @@ exports.getLibrary = async (req, res) => {
   try {
     const { id } = req.params;
     const library = await Library.findAll({
-      include: [
-        {
-          model: Literature,
-          as: 'literature',
-          attributes: {
-            exclude: ['createdAt', 'updatedAt', 'userId', 'UserId'],
-          },
-        },
-        {
-          model: User,
-          as: 'user',
-          attributes: {
-            exclude: ['password', 'createdAt', 'updatedAt'],
-          },
-        },
-      ],
+      // include: [
+      //   {
+      //     model: Literature,
+      //     as: 'literature',
+      //     attributes: {
+      //       exclude: ['createdAt', 'updatedAt', 'userId', 'UserId'],
+      //     },
+      //   },
+      //   {
+      //     model: User,
+      //     as: 'user',
+      //     attributes: {
+      //       exclude: ['password', 'createdAt', 'updatedAt'],
+      //     },
+      //   },
+      // ],
       attributes: {
         exclude: ['BookId', 'UserId', 'createdAt', 'updatedAt'],
       },
