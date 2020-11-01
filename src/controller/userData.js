@@ -11,15 +11,15 @@ exports.getUsers = async (req, res) => {
         {
           model: Library,
           as: 'library',
-          include: [
-            {
-              model: Literature,
-              as: 'literature',
-              attributes: {
-                exclude: ['createdAt', 'updatedAt', 'userId'],
-              },
-            },
-          ],
+          //   include: [
+          //     {
+          //       model: Literature,
+          //       as: 'literature',
+          //       attributes: {
+          //         exclude: ['createdAt', 'updatedAt', 'userId'],
+          //       },
+          //     },
+          //   ],
         },
       ],
       attributes: {
