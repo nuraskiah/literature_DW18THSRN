@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      literatureId: {
+      LiteratureId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Literature',
@@ -17,7 +17,7 @@ module.exports = {
         onUpdate: 'NO ACTION',
         onDelete: 'NO ACTION',
       },
-      userId: {
+      UserId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',

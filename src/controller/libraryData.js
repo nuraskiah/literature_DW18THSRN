@@ -3,25 +3,25 @@ const { User, Library, Literature } = require('./../../models');
 exports.getLibrary = async (req, res) => {
   try {
     const library = await Library.findAll({
-      // include: [
-      //   {
-      //     model: Literature,
-      //     as: 'literature',
-      //     attributes: {
-      //       exclude: ['createdAt', 'updatedAt', 'userId', 'UserId'],
-      //     },
-      //   },
-      //   {
-      //     model: User,
-      //     as: 'user',
-      //     attributes: {
-      //       exclude: ['password', 'createdAt', 'updatedAt'],
-      //     },
-      //   },
-      // ],
-      // attributes: {
-      //   exclude: ['createdAt', 'updatedAt'],
-      // },
+      include: [
+        {
+          model: Literature,
+          as: 'literature',
+          attributes: {
+            exclude: ['createdAt', 'updatedAt', 'UserId'],
+          },
+        },
+        {
+          model: User,
+          as: 'user',
+          attributes: {
+            exclude: ['password', 'createdAt', 'updatedAt'],
+          },
+        },
+      ],
+      attributes: {
+        exclude: ['createdAt', 'updatedAt'],
+      },
     });
 
     res.send({
@@ -83,10 +83,10 @@ exports.detailLibrary = async (req, res) => {
 
 exports.addLibrary = async (req, res) => {
   try {
-    const { literatureId, userId } = req.body;
+    const { LiteratureId, UserId } = req.body;
     const addBookmarks = await Library.create({
-      literatureId,
-      userId,
+      LiteratureId,
+      UserId,
     });
 
     res.send({

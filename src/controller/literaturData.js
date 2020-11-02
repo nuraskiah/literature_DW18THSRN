@@ -96,13 +96,13 @@ exports.getLiterature = async (req, res) => {
       where: {
         status: 'Approved',
       },
-      // include: {
-      //   model: User,
-      //   as: 'user',
-      //   attributes: {
-      //     exclude: ['createdAt', 'updatedAt'],
-      //   },
-      // },
+      include: {
+        model: User,
+        as: 'user',
+        attributes: {
+          exclude: ['createdAt', 'updatedAt'],
+        },
+      },
       attributes: {
         exclude: ['createdAt', 'updatedAt'],
       },
@@ -139,7 +139,7 @@ exports.getAdmLiterature = async (req, res) => {
           'createdAt',
           'updatedAt',
           'categoryId',
-          'userId',
+          'UserId',
           'CategoryId',
           'UserId',
         ],
@@ -204,11 +204,11 @@ exports.addLiterature = async (req, res) => {
       pages,
       ISBN,
       status,
-      userId,
+      UserId,
     } = req.body;
 
     const schema = joi.object({
-      userId: joi.number(),
+      UserId: joi.number(),
       title: joi.string().required(),
       author: joi.string().required(),
       publication_date: joi.string().required(),
@@ -283,7 +283,7 @@ exports.editLiterature = async (req, res) => {
       },
 
       attributes: {
-        exclude: ['createdAt', 'updatedAt', 'categoryId', 'userId'],
+        exclude: ['createdAt', 'updatedAt', 'categoryId', 'UserId'],
       },
     });
 
@@ -314,7 +314,7 @@ exports.deleteBook = async (req, res) => {
           'title',
           'publication',
           'categoryId',
-          'userId',
+          'UserId',
           'pages',
           'ISBN',
           'file',

@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Literature.belongsTo(models.User, {
         foreignKey: {
-          name: 'userId',
+          name: 'UserId',
         },
         as: 'user',
       });
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   Literature.init(
     {
       title: DataTypes.STRING,
-      userId: DataTypes.INTEGER,
+      UserId: DataTypes.INTEGER,
       publication_date: DataTypes.DATE,
       pages: DataTypes.NUMBER,
       ISBN: DataTypes.NUMBER,
