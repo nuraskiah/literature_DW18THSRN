@@ -104,7 +104,7 @@ exports.getLiterature = async (req, res) => {
         },
       },
       attributes: {
-        exclude: ['createdAt', 'updatedAt'],
+        exclude: ['createdAt', 'updatedAt', 'UserId'],
       },
       order: [['id', 'DESC']],
     });
