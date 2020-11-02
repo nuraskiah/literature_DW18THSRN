@@ -6,8 +6,8 @@ module.exports = {
       'Libraries',
       [
         {
-          LiteratureId: 1,
-          UserId: 1,
+          literatureId: 1,
+          userId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },

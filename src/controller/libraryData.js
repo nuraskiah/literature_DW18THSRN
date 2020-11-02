@@ -8,7 +8,7 @@ exports.getLibrary = async (req, res) => {
           model: Literature,
           as: 'literature',
           attributes: {
-            exclude: ['createdAt', 'updatedAt', 'UserId'],
+            exclude: ['createdAt', 'updatedAt', 'userId'],
           },
         },
         {
@@ -63,7 +63,7 @@ exports.detailLibrary = async (req, res) => {
         },
       ],
       attributes: {
-        exclude: ['LiteratureId', 'UserId', 'createdAt', 'updatedAt'],
+        exclude: ['literatureId', 'userId', 'createdAt', 'updatedAt'],
       },
     });
 
@@ -83,10 +83,10 @@ exports.detailLibrary = async (req, res) => {
 
 exports.addLibrary = async (req, res) => {
   try {
-    const { LiteratureId, UserId } = req.body;
+    const { literatureId, userId } = req.body;
     const addBookmarks = await Library.create({
-      LiteratureId,
-      UserId,
+      literatureId,
+      userId,
     });
 
     res.send({
@@ -111,7 +111,7 @@ exports.removeLibrary = async (req, res) => {
         id,
       },
       attributes: {
-        exclude: ['createdAt', 'updatedAt', 'LiteratureId', 'UserId'],
+        exclude: ['createdAt', 'updatedAt', 'literatureId', 'userId'],
       },
     });
     await Library.destroy({

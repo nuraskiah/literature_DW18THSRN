@@ -44,17 +44,17 @@ exports.searchLiteratureDate = async (req, res) => {
           },
         ],
         attributes: {
-          exclude: ['UserId', 'createdAt', 'updatedAt'],
+          exclude: ['userId', 'createdAt', 'updatedAt'],
         },
         where: {
           title: {
             [Op.like]: '%' + title + '%',
           },
-          publication_date: {
+          publicationDate: {
             [Op.gte]: public_year,
           },
         },
-        order: [['publication_date', 'DESC']],
+        order: [['publicationDate', 'DESC']],
       });
       res.send({
         message: `title like ${title} in ${public_year} was found`,
@@ -72,7 +72,7 @@ exports.searchLiteratureDate = async (req, res) => {
           },
         ],
         attributes: {
-          exclude: ['UserId', 'createdAt', 'updatedAt'],
+          exclude: ['userId', 'createdAt', 'updatedAt'],
         },
         where: {
           title: {
@@ -139,9 +139,9 @@ exports.getAdmLiterature = async (req, res) => {
           'createdAt',
           'updatedAt',
           'categoryId',
-          'UserId',
+          'userId',
           'CategoryId',
-          'UserId',
+          'userId',
         ],
       },
       order: [['id', 'DESC']],
@@ -200,18 +200,18 @@ exports.addLiterature = async (req, res) => {
     const {
       title,
       author,
-      publication_date,
+      publicationDate,
       pages,
       ISBN,
       status,
-      UserId,
+      userId,
     } = req.body;
 
     const schema = joi.object({
-      UserId: joi.number(),
+      userId: joi.number(),
       title: joi.string().required(),
       author: joi.string().required(),
-      publication_date: joi.string().required(),
+      publicationDate: joi.string().required(),
       pages: joi.number().required(),
       ISBN: joi.string().required(),
       status: joi.string().required(),
@@ -283,7 +283,7 @@ exports.editLiterature = async (req, res) => {
       },
 
       attributes: {
-        exclude: ['createdAt', 'updatedAt', 'categoryId', 'UserId'],
+        exclude: ['createdAt', 'updatedAt', 'categoryId', 'userId'],
       },
     });
 
@@ -314,7 +314,7 @@ exports.deleteBook = async (req, res) => {
           'title',
           'publication',
           'categoryId',
-          'UserId',
+          'userId',
           'pages',
           'ISBN',
           'file',

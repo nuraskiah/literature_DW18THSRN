@@ -7,8 +7,8 @@ module.exports = {
       [
         {
           title: 'Test',
-          UserId: 1,
-          publication_date: new Date(),
+          userId: 1,
+          publicationDate: new Date(),
           pages: 123,
           ISBN: 9879382732123,
           author: 'User',

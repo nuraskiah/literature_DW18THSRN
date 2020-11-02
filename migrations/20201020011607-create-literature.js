@@ -11,7 +11,7 @@ module.exports = {
       title: {
         type: Sequelize.STRING,
       },
-      UserId: {
+      userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
@@ -21,7 +21,7 @@ module.exports = {
         onUpdate: 'SET NULL',
         onDelete: 'CASCADE',
       },
-      publication_date: {
+      publicationDate: {
         type: Sequelize.DATE,
       },
       pages: {
